@@ -5,7 +5,7 @@
         <div
           v-for="(dataSlider, idx) in model.dataSlider"
           :key="idx"
-          class="swiper-slide"
+          class="slide-content swiper-slide"
         >
           <div class="image-container">
             <div class="img-wrapper">
@@ -33,10 +33,10 @@
           </div>
         </div>
       </div>
-      <div class="arrow">
-        <div class="swiper-button-next"></div>
-        <div class="swiper-button-prev"></div>
-      </div>
+      <!-- <div class="arrows">
+        <div class="arrow swiper-button-next"></div>
+        <div class="arrow swiper-button-prev"></div>
+      </div> -->
 
       <div class="pagination"></div>
     </div>
@@ -214,8 +214,8 @@ export default {
           disableOnInteraction: false,
         },
         navigation: {
-          nextEl: '.swiper-button-next',
-          prevEl: '.swiper-button-prev',
+          nextEl: '.swiper-button-prev',
+          prevEl: '.swiper-button-next',
         },
         pagination: {
           el: '.pagination',
@@ -284,9 +284,43 @@ export default {
   background-size: cover;
 }
 
+.slide-content {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .caption {
   z-index: 1;
   color: white !important;
+  position: absolute;
+  left: 50%;
+  bottom: 15%;
+  width: 70%;
+  // max-width: 480px;
+  text-align: center;
+  transform: translateX(-50%) translateY(0);
+}
+
+.caption h1 {
+  font: 400 43px/1.3 Playfair Display, serif;
+  margin-top: 0;
+  text-transform: uppercase;
+  margin-bottom: 0;
+  letter-spacing: 5px;
+}
+
+.caption p {
+  font: 400 14px/1.8 Open Sans, sans-serif;
+  max-width: 400px;
+  letter-spacing: 1px;
+  margin: 30px auto 0;
 }
 
 .btn {
@@ -321,14 +355,33 @@ export default {
   margin-right: 70px;
 }
 
-.arrow {
+.arrows {
   display: block;
-  padding: 20px;
+  // padding: 20px;
   position: absolute;
-  bottom: 10%;
+  bottom: 14%;
   margin-bottom: -20px;
   cursor: pointer;
   z-index: 3;
   right: 10%;
+}
+
+.swiper-button-next:after,
+.swiper-rtl .swiper-button-prev:after {
+  content: 'prev';
+}
+
+.swiper-button-prev:after,
+.swiper-rtl .swiper-button-prev:after {
+  content: 'next';
+}
+
+.swiper-pagination-bullet {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  text-indent: -999em;
+  z-index: 1;
+  margin: 0 15px;
 }
 </style>
