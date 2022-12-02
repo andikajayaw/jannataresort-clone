@@ -1,28 +1,55 @@
 <template>
   <div>
-    <div
-      v-for="(dataSlider, idx) in model.dataSlider"
-      :key="idx"
-      style="background: blue; width: 100%; height: 100%"
-    >
-      <h1>
-        {{ dataSlider.title }}
-      </h1>
-      <div>
-        <img
-          :src="`${dataSlider.featured.aws_file_url}/${dataSlider.featured.path}/${dataSlider.featured.filename.big}`"
-          alt="Slider"
-        />
-        {{ dataSlider.description }}
+    <div class="swiper mySwiperImages">
+      <div class="swiper-wrapper">
+        <div
+          v-for="(dataSlider, idx) in model.dataSlider"
+          :key="idx"
+          class="swiper-slide"
+        >
+          <div class="image-container">
+            <div class="img-wrapper">
+              <img
+                :src="`${dataSlider.featured.aws_file_url}/${dataSlider.featured.path}/${dataSlider.featured.filename.raw}`"
+                alt="Slider"
+              />
+            </div>
+          </div>
+          <div class="caption">
+            <h1 style="opacity: 1; transform: matrix(1, 0, 0, 1, 0, 0)">
+              {{ dataSlider.title }}
+            </h1>
+            <p
+              style="
+                opacity: 0.995257;
+                transform: translate3d(0px, 0.474295px, 0px);
+              "
+            >
+              {{ dataSlider.description }}
+            </p>
+            <div style="margin-top: 24px">
+              <button class="btn">Read More</button>
+            </div>
+          </div>
+        </div>
       </div>
+      <div class="arrow">
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+      </div>
+
+      <div class="pagination"></div>
     </div>
   </div>
 </template>
 
 <script>
+import Swiper from 'swiper/swiper-bundle.min'
+import 'swiper/swiper-bundle.min.css'
 export default {
   data: () => {
     return {
+      swipper: null,
       name: 'Component One',
       component_name: 'ComponentOne',
       model: {
@@ -159,7 +186,149 @@ export default {
       },
     }
   },
+  created() {
+    const that = this
+    this.$nextTick(() => {
+      that.swipper = new Swiper('.mySwiperImages', {
+        slidesPerView: 1,
+        spaceBetween: 13,
+        loop: true,
+        freeMode: true,
+        speed: 2000,
+        grabCursor: true,
+        watchSlidesProgress: true,
+        mousewheelControl: true,
+        effect: 'creative',
+        creativeEffect: {
+          prev: {
+            // will set `translateZ(-400px)` on previous slides
+            translate: [-500, 0, 0],
+          },
+          next: {
+            // will set `translateX(100%)` on next slides
+            translate: ['100%', 0, 100],
+          },
+        },
+        autoplay: {
+          delay: 2500,
+          disableOnInteraction: false,
+        },
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
+        pagination: {
+          el: '.pagination',
+          type: 'bullets',
+          clickable: true,
+        },
+      })
+    })
+  },
 }
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+
+  /* Center slide text vertically */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+  min-height: 745px !important;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  height: 745px !important;
+}
+
+.image-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-position: 50%;
+  z-index: 1;
+  background-size: cover;
+}
+.image-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-position: 50%;
+  z-index: 1;
+  background-size: cover;
+}
+
+.caption {
+  z-index: 1;
+  color: white !important;
+}
+
+.btn {
+  display: inline-block;
+  border: 1px solid #fff;
+  padding: 10px 30px;
+  color: #fff;
+  font: 400 11px/1.3 Open Sans, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  transition: all 0.2s ease;
+}
+
+.btn {
+  background: 0 0;
+}
+
+.btn:hover {
+  background-color: #fff;
+  color: #000;
+}
+
+.pagination {
+  position: absolute;
+  left: 10%;
+  cursor: default;
+  z-index: 2;
+  bottom: 10%;
+  margin-top: -56px;
+}
+.swiper-button-prev {
+  margin-right: 70px;
+}
+
+.arrow {
+  display: block;
+  padding: 20px;
+  position: absolute;
+  bottom: 10%;
+  margin-bottom: -20px;
+  cursor: pointer;
+  z-index: 3;
+  right: 10%;
+}
+</style>
