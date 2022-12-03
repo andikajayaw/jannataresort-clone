@@ -1,14 +1,85 @@
 <template>
   <div>
-    <div style="background: red; width: 100%; height: 100%">
+    <div class="container-inner">
+      <div class="columns block-card-shadow">
+        <div class="column is-7 block-picture">
+          <figure class="picture">
+            <div class="box wide"></div>
+            <div
+              class="rev_clip"
+              data-v-3c5fc44e=""
+              style="
+                clip-path: inset(0px);
+                opacity: 0;
+                transform: matrix(1, 0, 0, 1, -50, 0);
+              "
+            >
+              <img
+                :src="`${model.featured.aws_file_url}/${model.featured.path}/${model.featured.filename.big}`"
+                alt=""
+                data-scroll=""
+                data-scroll-speed="-0.95"
+                class="clip_image is-inview"
+                style="
+                  transform: matrix3d(
+                    1,
+                    0,
+                    0,
+                    0,
+                    0,
+                    1,
+                    0,
+                    0,
+                    0,
+                    0,
+                    1,
+                    0,
+                    0,
+                    0,
+                    0,
+                    1
+                  );
+                  height: 715px;
+                  width: auto;
+                "
+              />
+            </div>
+          </figure>
+        </div>
+        <div class="column is-5 block-entry">
+          <div class="inner">
+            <h1
+              class="section-headline rev_item"
+              style="opacity: 0; transform: matrix(1, 0, 0, 1, 0, 0)"
+            >
+              <span class="q_split">THE&nbsp;<br />RESORT</span>
+            </h1>
+            <div
+              class="rev_item"
+              style="opacity: 1; transform: matrix(1, 0, 0, 1, 0, 0)"
+            >
+              Jannata Resort &amp; Spa is a boutique property with tranquil
+              valley views in the rural village of Sebali, just outside of
+              Ubud.<br /><br />It is attuned to the surrounding environment
+              through a thoughtful design that respects Bali’s rich artistry and
+              cultural heritage.
+            </div>
+            <div
+              class="rev_item"
+              style="opacity: 1; transform: matrix(1, 0, 0, 1, 0, 0)"
+            >
+              <a href="/en/our-story" class="inline-link q_magnet"
+                >READ THE STORY</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
       <h1>
         {{ model.title }}
       </h1>
       <div>
-        <img
-          :src="`${model.featured.aws_file_url}/${model.featured.path}/${model.featured.filename.raw}`"
-          alt="Resort"
-        />
+        <img alt="Resort" />
         <!-- {{ model.description }} -->
       </div>
     </div>
@@ -56,4 +127,89 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.container-inner {
+  padding-left: 12rem;
+  padding-right: 12rem;
+}
+
+.block-card-shadow {
+  padding: 50px 0 80px;
+}
+
+.block-card-shadow .block-picture {
+  flex: none;
+  width: 57.5%;
+}
+
+.picture {
+  position: relative;
+  margin: 0;
+  padding: 0 30px 0 20px;
+  height: 100%;
+}
+
+.box.wide {
+  position: absolute;
+  top: 60px;
+  right: -80%;
+  width: 140%;
+}
+
+.rev_clip {
+  height: 100%;
+  position: relative;
+  z-index: 5;
+}
+
+.rev_clip img {
+  position: absolute;
+  max-width: 200%;
+  width: 100%;
+  min-width: 100%;
+  min-height: 250px;
+}
+
+.block-entry {
+  display: flex;
+  justify-content: flex-end;
+  -webkit-justify-content: flex-end;
+  align-items: center;
+  -webkit-align-items: center;
+  flex: none;
+  width: 42.5%;
+}
+
+.inner {
+  padding: 0 50px 0 100px;
+}
+
+.section-headline {
+  margin-top: 100px;
+}
+
+.q_split,
+.q_split_wrap {
+  display: block;
+}
+
+.q_split {
+  overflow: hidden;
+}
+
+.inline-link.q_magnet {
+  display: inline-block;
+}
+
+.inline-link:before {
+  content: '';
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: 20px;
+  width: 0;
+  height: 2px;
+  background: #679334;
+  transition: all 0.5s cubic-bezier(0.86, 0, 0.07, 1);
+}
+</style>

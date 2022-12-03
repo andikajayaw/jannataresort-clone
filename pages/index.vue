@@ -1,18 +1,29 @@
 <template>
-  <div class="smooth">
-    <div class="container">
-      <section id="slider">
-        <SliderComponent />
-      </section>
-      <section id="about">
-        <ResortComponent />
-      </section>
-      <section id="home_accomodation">hello home_accomodation</section>
-      <section id="dinner">hello dinner</section>
-      <section id="spa">hello spa</section>
-      <section id="review">hello review</section>
-      <section id="book">hello book</section>
-      <section id="footer">hello footer</section>
+  <div>
+    <LoaderComponent />
+    <AwardComponent />
+    <div class="smooth loco-scroll div-smooth">
+      <HeaderComponent />
+      <div>
+        <div class="container">
+          <section id="slider" class="slide">
+            <SliderComponent />
+          </section>
+          <section
+            id="about"
+            class="bg-img-section-one"
+            style="margin-top: 0px; margin-bottom: 0px"
+          >
+            <ResortComponent />
+          </section>
+          <section id="home_accomodation">hello home_accomodation</section>
+          <section id="dinner">hello dinner</section>
+          <section id="spa">hello spa</section>
+          <section id="review">hello review</section>
+          <section id="book">hello book</section>
+          <section id="footer">hello footer</section>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -24,20 +35,14 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.smmooth {
-  position: fixed;
-  top: 0;
-  right: 0;
-  left: 0;
-  width: 100%;
-  height: auto;
-  margin: auto;
-  will-change: transform;
-  z-index: 1;
+.div-smooth {
+  transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+  opacity: 1;
+  pointer-events: all;
 }
 
-.container {
-  width: 100%;
-  margin: 0 auto;
+.bg-image-section-one {
+  position: relative;
+  overflow: hidden;
 }
 </style>
