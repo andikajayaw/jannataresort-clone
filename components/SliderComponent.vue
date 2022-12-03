@@ -1,45 +1,59 @@
 <template>
-  <div>
-    <div class="swiper mySwiperImages">
-      <div class="swiper-wrapper">
-        <div
-          v-for="(dataSlider, idx) in model.dataSlider"
-          :key="idx"
-          class="slide-content swiper-slide"
-        >
-          <div class="image-container">
-            <div class="img-wrapper">
-              <img
-                :src="`${dataSlider.featured.aws_file_url}/${dataSlider.featured.path}/${dataSlider.featured.filename.raw}`"
-                alt="Slider"
-              />
-            </div>
+  <div class="slide-inner swiper mySwiperImages">
+    <div class="slides swiper-wrapper">
+      <div
+        v-for="(dataSlider, idx) in model.dataSlider"
+        :key="idx"
+        class="slide-content swiper-slide"
+      >
+        <div class="image-container">
+          <div class="img-wrapper">
+            <img
+              :src="`${dataSlider.featured.aws_file_url}/${dataSlider.featured.path}/${dataSlider.featured.filename.big}`"
+              alt="Slider"
+            />
           </div>
-          <div class="caption">
-            <h1 style="opacity: 1; transform: matrix(1, 0, 0, 1, 0, 0)">
-              {{ dataSlider.title }}
-            </h1>
-            <p
-              style="
-                opacity: 0.995257;
-                transform: translate3d(0px, 0.474295px, 0px);
-              "
-            >
-              {{ dataSlider.description }}
-            </p>
-            <div style="margin-top: 24px">
-              <button class="btn">Read More</button>
+        </div>
+        <div class="caption">
+          <h1 style="opacity: 1; transform: matrix(1, 0, 0, 1, 0, 0)">
+            {{ dataSlider.title }}
+          </h1>
+          <div
+            class="sep"
+            style="opacity: 1; transform: matrix(1, 0, 0, 1, 0, 0)"
+          ></div>
+          <p
+            style="
+              opacity: 0.995257;
+              transform: translate3d(0px, 0.474295px, 0px);
+            "
+          >
+            {{ dataSlider.description }}
+          </p>
+          <!-- <div style="margin-top: 24px">
+            <button class="btn">Read More</button>
+          </div> -->
+          <div
+            class="link"
+            style="
+              opacity: 0.996805;
+              transform: translate3d(0px, 0.319493px, 0px);
+            "
+          >
+            <div class="q_magnet" style="transform: translate(0px, 0px)">
+              <a class="btn">Read more</a>
             </div>
           </div>
         </div>
+        <div class="grad-btm"></div>
       </div>
-      <!-- <div class="arrows">
+    </div>
+    <!-- <div class="arrows">
         <div class="arrow swiper-button-next"></div>
         <div class="arrow swiper-button-prev"></div>
       </div> -->
 
-      <div class="pagination"></div>
-    </div>
+    <div class="pagination"></div>
   </div>
 </template>
 
@@ -263,7 +277,23 @@ export default {
   height: 745px !important;
 }
 
-.image-container {
+.slide .slide-inner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.slide .slides {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.slide .image-container {
   position: absolute;
   top: 0;
   left: 0;
@@ -273,7 +303,7 @@ export default {
   z-index: 1;
   background-size: cover;
 }
-.image-wrapper {
+.slide .image-wrapper {
   position: absolute;
   top: 0;
   left: 0;
@@ -284,7 +314,7 @@ export default {
   background-size: cover;
 }
 
-.slide-content {
+.slide .slide-content {
   top: 0;
   left: 0;
   width: 100%;
@@ -296,7 +326,7 @@ export default {
   align-items: center;
 }
 
-.caption {
+.slide .slide-content .caption {
   z-index: 1;
   color: white !important;
   position: absolute;
@@ -308,7 +338,7 @@ export default {
   transform: translateX(-50%) translateY(0);
 }
 
-.caption h1 {
+.slide .slide-content .caption h1 {
   font: 400 43px/1.3 Playfair Display, serif;
   margin-top: 0;
   text-transform: uppercase;
@@ -316,11 +346,19 @@ export default {
   letter-spacing: 5px;
 }
 
-.caption p {
+.slide .slide-content .caption p {
   font: 400 14px/1.8 Open Sans, sans-serif;
   max-width: 400px;
   letter-spacing: 1px;
   margin: 30px auto 0;
+}
+
+.slide .slide-content .sep {
+  width: 80px;
+  height: 1px;
+  background-color: hsla(0, 0%, 100%, 0.8);
+  margin: 30px auto;
+  display: none;
 }
 
 .btn {
@@ -332,6 +370,11 @@ export default {
   text-transform: uppercase;
   letter-spacing: 2px;
   transition: all 0.2s ease;
+}
+
+.q_magnet {
+  padding: 50px 20px 20px;
+  display: inline-block;
 }
 
 .btn {
@@ -383,5 +426,16 @@ export default {
   text-indent: -999em;
   z-index: 1;
   margin: 0 15px;
+}
+
+.grad-btm {
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  width: 100%;
+  bottom: 0;
+  height: 40%;
+  pointer-events: none;
+  background: linear-gradient(180deg, transparent 0, rgba(0, 0, 0, 0.65));
 }
 </style>
