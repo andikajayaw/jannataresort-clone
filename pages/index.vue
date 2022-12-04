@@ -11,7 +11,7 @@
           </section>
           <section
             id="about"
-            class="bg-img-section-one"
+            class="section block-card-section bg-vanilla bg-image-section-one"
             style="margin-top: 0px; margin-bottom: 0px"
           >
             <ResortComponent />
@@ -40,9 +40,7 @@ export default {
   opacity: 1;
   pointer-events: all;
 }
-
-.bg-image-section-one {
-  position: relative;
-  overflow: hidden;
+.section {
+  padding: 150px 0 100px;
 }
 </style>
