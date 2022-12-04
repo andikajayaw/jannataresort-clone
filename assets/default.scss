@@ -321,6 +321,12 @@ header {
   color: #d8d6e2;
 }
 
+.accommodations:after {
+  clear: both;
+  content: '';
+  display: block;
+}
+
 .accommodations .accommodation-type {
   width: 33.33333%;
   float: left;
@@ -342,15 +348,6 @@ header {
   margin-bottom: 50px;
 }
 
-#home_accommodation .accommodations .accommodation-type a {
-  display: block;
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-}
-
 .accommodations .accommodation-type a h4.accommodation-name {
   color: #fff;
   position: absolute;
@@ -365,6 +362,25 @@ header {
   font-weight: 400;
   margin: 0 0 35px;
   letter-spacing: 2px;
+}
+
+.accommodations:hover .accommodation-type a:hover h4.accommodation-name:before {
+  width: 100%;
+}
+
+.accommodations .accommodation-type a h4.accommodation-name:before {
+  content: '';
+  display: block;
+  height: 1px;
+  width: 100px;
+  background-color: hsla(0, 0%, 100%, 0.8);
+  margin: 10px 0 0;
+  position: relative;
+  left: 0;
+}
+
+.accommodations .accommodation-type a h4.accommodation-name:before {
+  transition: all 0.3s ease;
 }
 
 .accommodations .accommodation-type a .accommodation-bg {
