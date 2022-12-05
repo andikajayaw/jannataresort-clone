@@ -2,31 +2,11 @@
   <div class="q-container container-inner">
     <div class="columns block-card-shadow">
       <div class="column is-7 block-picture">
-        <figure class="picture" style="height: 650px">
+        <figure class="picture" style="">
           <div
             data-scroll=""
             data-scroll-speed="-1"
             class="box wide is-inview"
-            style="
-              transform: matrix3d(
-                1,
-                0,
-                0,
-                0,
-                0,
-                1,
-                0,
-                0,
-                0,
-                0,
-                1,
-                0,
-                0,
-                -23.06,
-                0,
-                1
-              );
-            "
           ></div>
           <div
             class="rev_clip"
@@ -38,28 +18,7 @@
               data-scroll=""
               data-scroll-speed="-0.95"
               class="clip_image is-inview"
-              style="
-                transform: matrix3d(
-                  1,
-                  0,
-                  0,
-                  0,
-                  0,
-                  1,
-                  0,
-                  0,
-                  0,
-                  0,
-                  1,
-                  0,
-                  0,
-                  0,
-                  0,
-                  1
-                );
-                height: 715px;
-                width: auto;
-              "
+              style=""
             />
           </div>
         </figure>
@@ -136,4 +95,37 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.clip_image {
+  height: 715px !important;
+  width: auto !important;
+}
+.picture {
+  height: 650px !important;
+}
+.rev_clip img {
+  position: absolute;
+  max-width: 200%;
+  width: 100%;
+  min-width: 100%;
+  min-height: 250px;
+}
+@media screen and (max-width: 1024px) {
+  .block-card-shadow {
+    display: flex;
+  }
+  .clip_image {
+    height: 458.7px !important;
+    width: auto !important;
+  }
+  .picture {
+    height: 417px !important;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .block-card-shadow .block-entry .inner {
+    padding-left: 0;
+  }
+}
+</style>

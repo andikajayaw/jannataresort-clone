@@ -51,9 +51,9 @@ header {
   padding: 0 5rem;
   margin: 0 auto;
 }
-.columns {
-  display: flex;
-}
+// .columns {
+//   display: flex;
+// }
 
 .column {
   display: block;
@@ -500,7 +500,25 @@ header {
   font-size: 12px;
 }
 
+.accommodations .accommodation-type a {
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
 @media screen and (max-width: 768px) {
+  .q-container {
+    padding: 0 35px;
+  }
+
+  .container-inner {
+    padding-left: 50px !important;
+    padding-right: 50px !important;
+  }
+
   .award {
     top: auto;
     bottom: 30px;
@@ -509,23 +527,28 @@ header {
     right: 15px;
   }
 
-  .container-inner {
-    padding-left: 50px;
-    padding-right: 50px;
-  }
-
   .block-card-shadow {
     display: flex;
   }
+
   .block-card-shadow .block-entry .inner {
     padding-right: 25px;
   }
   .accommodations .accommodation-type {
     margin: 0 auto 50px;
-    height: 185px;
+    height: 185px !important;
     width: calc(100% - 40px);
     float: none;
   }
+
+  .accommodations .accommodation-type a h4.accommodation-name {
+    left: 10% !important;
+  }
+
+  .accommodations .accommodation-type a .accommodation-bg {
+    background-size: 100% !important;
+  }
+
   .block-card-overlap .overlap-wrapper {
     padding-bottom: 0;
   }
@@ -553,12 +576,15 @@ header {
     padding-left: 8rem;
     padding-right: 8rem;
   }
+
   .section {
     padding: 75px 0;
   }
+
   .block-card-shadow .block-entry .inner {
     padding-left: 0;
   }
+
   .accommodations .accommodation-type {
     height: 360px;
   }

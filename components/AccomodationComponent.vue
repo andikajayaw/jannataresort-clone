@@ -65,15 +65,7 @@
                     `url(${slider.featured.aws_file_url}/${slider.featured.path}/${slider.featured.filename.big})`,
                   ],
                 }"
-              >
-                <div
-                  class="accommodation-bg-change"
-                  :style="{
-                    backgroundImage: [
-                      `url(${slider.featured_hover.aws_file_url}/${slider.featured_hover.path}/${slider.featured_hover.filename.big})`,
-                    ],
-                  }"
-                ></div></div
+              ></div
             ></a>
           </div>
         </div>
