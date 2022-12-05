@@ -31,11 +31,25 @@
             >
               <AccomodationComponent />
             </section>
-            <section id="dinner">hello dinner</section>
-            <section id="spa">hello spa</section>
-            <section id="review">hello review</section>
-            <section id="book">hello book</section>
-            <section id="footer">hello footer</section>
+            <section
+              id="dinner"
+              class="section bg-image-section-one bg-vanilla block-card-section block-card-overlap"
+              style="margin-top: 0px; margin-bottom: 0px"
+            >
+              <DinnerComponent />
+            </section>
+            <section
+              id="spa"
+              class="section block-card-section block-card-overlap bg-full-image"
+            >
+              <SpaComponent />
+            </section>
+            <section
+              id="review"
+              class="section our-story-summary bg-image-section-one testi"
+            >
+              <TestimonialComponent />
+            </section>
           </div>
         </div>
       </div>
@@ -76,5 +90,28 @@ export default {
 }
 .section {
   padding: 150px 0 100px;
+}
+
+.bg-image-section-one {
+  position: relative;
+  overflow: hidden;
+}
+
+.bg-full-image {
+  padding: 0;
+  min-height: 120vh;
+  background-color: #000;
+  position: relative;
+  overflow: hidden;
+}
+
+#page_summary {
+  position: relative;
+  z-index: 1;
+  background: #f0f0f5;
+}
+
+.our-story-summary[data-v-eab29924] {
+  padding-bottom: 150px;
 }
 </style>

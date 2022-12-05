@@ -135,8 +135,8 @@ header {
   background-color: #f0f0f5;
 }
 
-.bg-vanilla {
-  background-color: #f0f0f5;
+.bg-white {
+  background-color: #fff;
 }
 
 .container-inner {
@@ -399,7 +399,7 @@ header {
   transition: all 0.4s ease;
 }
 
-.accommodations .accommodation-type:nth-child(0) a .accommodation-bg-change {
+.accommodations .accommodation-type:first-child a .accommodation-bg-change {
   background-position: 0;
 }
 
@@ -421,8 +421,169 @@ header {
   background-size: cover;
 }
 
+.block-card-overlap .block-entry {
+  position: absolute;
+  margin-top: 80px;
+  top: 0;
+  width: 54%;
+  flex: none;
+  z-index: 25;
+}
+
+.text-green {
+  color: #679334;
+}
+.block-card-overlap .overlap-wrapper {
+  position: relative;
+  padding-bottom: 130px;
+}
+
+.block-card-overlap .block-picture.wide {
+  width: 95%;
+}
+
+.block-card-overlap .block-picture {
+  flex: none;
+  width: 55%;
+}
+
+.rev_clip {
+  clip-path: inset(0 1000px 0 0);
+  -webkit-clip-path: inset(0 1000px 0 0);
+  height: 100%;
+  position: relative;
+  z-index: 5;
+  min-height: 250px;
+}
+
+.block-card-overlap .block-picture .picture {
+  position: relative;
+  margin: 0;
+  padding: 0 30px 0 20px;
+  height: 100%;
+}
+
+.block-card-overlap .type-1 .block-entry {
+  right: 0;
+}
+
+.block-card-overlap .block-entry .inner {
+  padding: 50px 60px 70px;
+}
+
+.block-card-overlap .block-entry .title {
+  font: 400 35px/1 Playfair Display, serif;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  margin: 0;
+  position: relative;
+  display: block;
+  line-height: 56px;
+}
+
+.block-card-overlap .type-1 .block-entry .title-line {
+  right: -125px;
+  transform-origin: right;
+  -webkit-transform-origin: right;
+}
+
+.block-card-overlap .block-entry .title-line {
+  height: 1px;
+  background-color: #679334;
+  margin: 35px 0 40px;
+  position: relative;
+}
+
+.block-card-overlap .block-entry p {
+  max-width: 300px;
+  margin: 0;
+  font-size: 12px;
+}
+
+@media screen and (max-width: 768px) {
+  .award {
+    top: auto;
+    bottom: 30px;
+    width: 60px;
+    height: 60px;
+    right: 15px;
+  }
+
+  .container-inner {
+    padding-left: 50px;
+    padding-right: 50px;
+  }
+
+  .block-card-shadow {
+    display: flex;
+  }
+  .block-card-shadow .block-entry .inner {
+    padding-right: 25px;
+  }
+  .accommodations .accommodation-type {
+    margin: 0 auto 50px;
+    height: 185px;
+    width: calc(100% - 40px);
+    float: none;
+  }
+  .block-card-overlap .overlap-wrapper {
+    padding-bottom: 0;
+  }
+
+  .block-card-overlap .block-picture {
+    width: 100%;
+    margin-bottom: 50px;
+  }
+
+  .block-card-overlap .block-entry {
+    width: 70%;
+    right: 10%;
+    margin-top: 150px;
+  }
+}
+
 @media screen and (min-width: 769px) {
   .columns:not(.q-desktop) {
     display: flex;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .container-inner {
+    padding-left: 8rem;
+    padding-right: 8rem;
+  }
+  .section {
+    padding: 75px 0;
+  }
+  .block-card-shadow .block-entry .inner {
+    padding-left: 0;
+  }
+  .accommodations .accommodation-type {
+    height: 360px;
+  }
+  .block-card-overlap .overlap-wrapper {
+    padding-bottom: 100px;
+  }
+  .block-card-overlap .block-entry .inner {
+    padding: 35px 45px;
+  }
+  .block-card-overlap .block-entry .title {
+    font-size: 32px;
+    line-height: 42px;
+  }
+
+  .block-card-overlap .type-1 .block-entry .title-line {
+    left: 90px;
+  }
+  .block-card-overlap .block-entry .inner {
+    padding: 35px 45px;
+  }
+  .block-card-overlap .block-entry .title {
+    font-size: 32px;
+    line-height: 42px;
+  }
+  .block-card-overlap .block-entry p {
+    max-width: 100%;
   }
 }

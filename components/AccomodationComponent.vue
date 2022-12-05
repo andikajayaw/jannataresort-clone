@@ -47,66 +47,32 @@
     <div class="columns">
       <div class="column villas-container">
         <div id="accommodations" class="accommodations column-grid-container">
-          <div class="accommodation-type column-item">
+          <!-- model.dataSlider.featured.aws_file_url + model.dataSlider.featured.path + model.dataSlider.featured.filename.big -->
+          <div
+            v-for="slider in model.dataSlider"
+            :key="slider.id"
+            class="accommodation-type column-item"
+          >
             <!---->
             <br />
             <!---->
             <a
-              ><h4 class="accommodation-name">Superior Room</h4>
+              ><h4 class="accommodation-name">{{ slider.link.title }}</h4>
               <div
                 class="accommodation-bg"
-                style="
-                  background-image: url(https://vold-chain-hotel.s3-ap-southeast-1.amazonaws.com/5e65fe109dae8c14dd70f7e0/pictures/accomodation/superior-room/15916918531071/big/DSCF4267_JPG.jpg);
-                "
+                :style="{
+                  backgroundImage: [
+                    `url(${slider.featured.aws_file_url}/${slider.featured.path}/${slider.featured.filename.big})`,
+                  ],
+                }"
               >
                 <div
-                  data-src="https://vold-chain-hotel.s3-ap-southeast-1.amazonaws.com/5e65fe109dae8c14dd70f7e0/pictures/accomodation/15916022232325/big/DSCF2425_JPG.jpg"
                   class="accommodation-bg-change"
-                  style="
-                    background-image: url('https://vold-chain-hotel.s3-ap-southeast-1.amazonaws.com/5e65fe109dae8c14dd70f7e0/pictures/accomodation/pool-villa/15916925500101/big/DSCF2335_JPG.jpg');
-                  "
-                ></div></div
-            ></a>
-          </div>
-          <div class="accommodation-type column-item">
-            <!---->
-            <br />
-            <!---->
-            <a
-              ><h4 class="accommodation-name">Pool Villa</h4>
-              <div
-                class="accommodation-bg"
-                style="
-                  background-image: url(https://vold-chain-hotel.s3-ap-southeast-1.amazonaws.com/5e65fe109dae8c14dd70f7e0/pictures/accomodation/pool-villa/16348855813291/big/647A1103.jpg);
-                "
-              >
-                <div
-                  data-src="https://vold-chain-hotel.s3-ap-southeast-1.amazonaws.com/5e65fe109dae8c14dd70f7e0/pictures/accomodation/pool-villa/15916925500101/big/DSCF2335_JPG.jpg"
-                  class="accommodation-bg-change"
-                  style="
-                    background-image: url('https://vold-chain-hotel.s3-ap-southeast-1.amazonaws.com/5e65fe109dae8c14dd70f7e0/pictures/accomodation/pool-villa/15916925500101/big/DSCF2335_JPG.jpg');
-                  "
-                ></div></div
-            ></a>
-          </div>
-          <div class="accommodation-type column-item">
-            <!---->
-            <br />
-            <!---->
-            <a
-              ><h4 class="accommodation-name">Deluxe Suite</h4>
-              <div
-                class="accommodation-bg"
-                style="
-                  background-image: url(https://vold-chain-hotel.s3-ap-southeast-1.amazonaws.com/5e65fe109dae8c14dd70f7e0/pictures/accomodation/deluxe-suite/16342701420451/big/_DSF0731-Edit-2_JPG.jpg);
-                "
-              >
-                <div
-                  data-src="https://vold-chain-hotel.s3-ap-southeast-1.amazonaws.com/5e65fe109dae8c14dd70f7e0/pictures/accomodation/deluxe-suite/15916908947621/big/DSCF2390_JPG.jpg"
-                  class="accommodation-bg-change"
-                  style="
-                    background-image: url('https://vold-chain-hotel.s3-ap-southeast-1.amazonaws.com/5e65fe109dae8c14dd70f7e0/pictures/accomodation/pool-villa/15916925500101/big/DSCF2335_JPG.jpg');
-                  "
+                  :style="{
+                    backgroundImage: [
+                      `url(${slider.featured_hover.aws_file_url}/${slider.featured_hover.path}/${slider.featured_hover.filename.big})`,
+                    ],
+                  }"
                 ></div></div
             ></a>
           </div>
