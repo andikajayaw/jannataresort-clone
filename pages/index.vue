@@ -1,9 +1,15 @@
 <template>
   <div>
+    <!-- <LoaderComponent /> -->
+    <AwardComponent />
+    <div>
+      <MainNavbarComponent />
+      <NavbarMobileComponent />
+    </div>
     <SmoothScrool>
-      <!-- <LoaderComponent /> -->
-      <AwardComponent />
       <div
+        data-scroll-section
+        data-scroll-section-inview
         class="smooth loco-scroll div-smooth"
         style="
           transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
@@ -14,13 +20,14 @@
         <HeaderComponent />
         <div>
           <div class="container">
-            <section id="slider" class="slide">
+            <section id="slider" class="slide" data-scroll>
               <SliderComponent />
             </section>
             <section
               id="about"
               class="section block-card-section bg-vanilla bg-image-section-one"
               style="margin-top: 0px; margin-bottom: 0px"
+              data-scroll
             >
               <ResortComponent />
             </section>
@@ -58,40 +65,12 @@
 </template>
 
 <script>
-// import LocomotiveScroll from 'locomotive-scroll'
 export default {
   name: 'IndexPage',
-  data: () => {
-    return {
-      scroll: null,
-    }
-  },
-  created() {
-    // this.locomotiveScrollInit()
-  },
-  methods: {
-    locomotiveScrollInit() {
-      this.scroll = new this.$LocomotiveScroll({
-        el: document.querySelector('[data-scroll-container]'),
-        smooth: true,
-        getDirection: true,
-      })
-      this.scroll.stop()
-    },
-  },
 }
 </script>
 
 <style lang="scss" scoped>
-.div-smooth {
-  transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
-  opacity: 1;
-  pointer-events: all;
-}
-.section {
-  padding: 150px 0 100px;
-}
-
 .bg-image-section-one {
   position: relative;
   overflow: hidden;
@@ -111,7 +90,7 @@ export default {
   background: #f0f0f5;
 }
 
-.our-story-summary[data-v-eab29924] {
+.our-story-summary {
   padding-bottom: 150px;
 }
 </style>

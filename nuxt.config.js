@@ -12,13 +12,21 @@ export default {
       { name: 'format-detection', content: 'telephone=no' },
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
+    script: [
+      { src: 'https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.js' },
+    ]
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: ['@/assets/default.scss', 'locomotive-scroll/dist/locomotive-scroll.css',],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [],
+  plugins: [
+    {
+      src: "~/plugins/locomotiveScroll.js",
+      mode: "client"
+    }
+  ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,

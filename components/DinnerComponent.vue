@@ -10,7 +10,6 @@
               data-scroll=""
               data-scroll-speed="-2"
               class="clip_image is-inview"
-              style="height: 641.3px; width: auto"
             />
           </div>
         </figure>
@@ -107,6 +106,31 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.clip_image {
+  height: 641.3px !important;
+  width: auto !important;
+}
 .picture {
+  height: 583px !important;
+}
+
+@media screen and (max-width: 540px) {
+  .picture {
+    height: 250px !important;
+  }
+  .clip_image {
+    height: 275px !important;
+    width: auto !important;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .clip_image {
+    height: 420.2px !important;
+    width: auto !important;
+  }
+  .picture {
+    height: 382px !important;
+  }
 }
 </style>
