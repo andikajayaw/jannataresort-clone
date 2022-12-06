@@ -1,6 +1,6 @@
 <template>
   <div class="q-container container-inner">
-    <div class="columns type-1">
+    <!-- <div class="columns type-1">
       <div class="column flickity-enabled is-draggable">
         <div
           class="swipper flickity-viewport"
@@ -25,17 +25,26 @@
           </div>
         </div>
       </div>
-      <ol class="flickity-page-dots">
-        <li class="dot" aria-label="Page dot 1"></li>
-        <li class="dot" aria-label="Page dot 2"></li>
-        <li class="dot" aria-label="Page dot 3"></li>
-        <li class="dot" aria-label="Page dot 4"></li>
-        <li
-          class="dot is-selected"
-          aria-label="Page dot 5"
-          aria-current="step"
-        ></li>
-      </ol>
+
+    </div> -->
+    <div class="swiper mySwiper">
+      <div class="swiper-wrapper">
+        <div
+          v-for="slider in model.dataSlider"
+          :key="slider.id"
+          class="swiper-slide"
+          aria-hidden="true"
+        >
+          <p>
+            {{ slider.description }}
+          </p>
+          <br />
+          <small>{{ slider.title }}</small>
+        </div>
+      </div>
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-pagination"></div>
     </div>
   </div>
 </template>
@@ -88,33 +97,22 @@ export default {
   created() {
     const that = this
     this.$nextTick(() => {
-      that.swipper = new Swiper('.flickity-viewport', {
+      that.swipper = new Swiper('.mySwiper', {
         slidesPerView: 1,
-        spaceBetween: 13,
+        spaceBetween: 30,
         loop: true,
-        freeMode: true,
-        speed: 2000,
-        grabCursor: true,
-        watchSlidesProgress: true,
-        mousewheelControl: true,
-        effect: 'creative',
-        creativeEffect: {
-          prev: {
-            // will set `translateZ(-400px)` on previous slides
-            translate: [-500, 0, 0],
-          },
-          next: {
-            // will set `translateX(100%)` on next slides
-            translate: ['100%', 0, 100],
-          },
-        },
+        centeredSlides: true,
         autoplay: {
-          delay: 2500,
+          delay: 1000,
           disableOnInteraction: false,
         },
         pagination: {
-          el: '.flickity-page-dots',
+          el: '.swiper-pagination',
           clickable: true,
+        },
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
         },
       })
     })

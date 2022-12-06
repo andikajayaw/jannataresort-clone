@@ -124,7 +124,7 @@ export default {
   min-height: 250px;
 }
 
-.rev_clip img[data-v-5004e6cc] {
+.rev_clip {
   position: absolute;
   max-width: 200%;
   width: 100%;
@@ -136,21 +136,13 @@ export default {
   transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
 }
 
-.block-card-overlap .type-1 .block-entry {
-  right: 0;
-  left: -300px;
-}
-
 @media screen and (max-width: 540px) {
   .picture {
     height: 298px !important;
   }
   .clip_image {
-    height: 450px !important;
+    height: 327.8px !important;
     width: auto !important;
-  }
-  .block-card-overlap .block-picture .picture {
-    padding: 0 20px 0 0;
   }
 }
 

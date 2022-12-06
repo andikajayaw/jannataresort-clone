@@ -4,7 +4,7 @@
     <AwardComponent />
     <div>
       <MainNavbarComponent />
-      <!-- <NavbarMobileComponent v-if="isMobile" /> -->
+      <NavbarMobileComponent v-if="!isMobile" />
     </div>
     <SmoothScrool>
       <div data-scroll-section class="smooth loco-scroll">
@@ -50,6 +50,7 @@
               class="section block-card-section block-card-overlap bg-full-image"
               data-scroll
               data-scroll-speed="2"
+              style="margin-top: 0px; margin-bottom: 0px"
             >
               <SpaComponent />
             </section>
@@ -78,7 +79,7 @@ export default {
     isMobile() {
       if (process.client) {
         const sW = window.innerWidth
-        if (sW <= 540) {
+        if (sW <= 545) {
           return true
         } else {
           return false
@@ -98,19 +99,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.bg-image-section-one {
-  position: relative;
-  overflow: hidden;
-}
-
-.bg-full-image {
-  padding: 0;
-  min-height: 120vh;
-  background-color: #000;
-  position: relative;
-  overflow: hidden;
-}
-
 #page_summary {
   position: relative;
   z-index: 1;

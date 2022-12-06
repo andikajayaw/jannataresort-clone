@@ -396,6 +396,15 @@ header {
   z-index: 0;
 }
 
+.rev_clip {
+  clip-path: inset(0 1000px 0 0);
+  -webkit-clip-path: inset(0 1000px 0 0);
+  height: 100%;
+  position: relative;
+  z-index: 5;
+  min-height: 250px;
+}
+
 .block-card-shadow .block-picture .picture .rev_clip {
   height: 100%;
   position: relative;
@@ -666,15 +675,6 @@ header {
   width: 55%;
 }
 
-.rev_clip {
-  clip-path: inset(0 1000px 0 0);
-  -webkit-clip-path: inset(0 1000px 0 0);
-  height: 100%;
-  position: relative;
-  z-index: 5;
-  min-height: 250px;
-}
-
 .block-card-overlap .block-picture .picture {
   position: relative;
   margin: 0;
@@ -726,6 +726,63 @@ header {
   height: 100%;
   top: 0;
   left: 0;
+}
+
+.bg-image-section-one {
+  position: relative;
+  overflow: hidden;
+}
+
+.bg-full-image {
+  padding: 0 !important;
+  min-height: 120vh;
+  background-color: #000;
+  position: relative;
+  overflow: hidden;
+}
+
+.navbar-header-mobile {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 80px;
+  background-color: #323037;
+  z-index: 999;
+}
+
+.navbar-header-mobile .logo {
+  width: 70px;
+  display: block;
+  margin: 10px auto;
+}
+
+.navbar-header-mobile .navbar-btn-bars {
+  position: absolute;
+  right: 30px;
+  top: 30px;
+  width: 65px;
+  height: 15px;
+  overflow: hidden;
+}
+
+.navbar-header-mobile .navbar-btn-bars div:first-child {
+  top: 7px;
+}
+
+.navbar-header-mobile .navbar-btn-bars div:nth-child(3) {
+  top: 14px;
+}
+
+.navbar-header-mobile .navbar-btn-bars div {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 25px;
+  height: 1px;
+  background-color: #fff;
+  transition: all 0.7s cubic-bezier(0.19, 1, 0.22, 1);
 }
 
 @media screen and (max-width: 540px) {
@@ -842,10 +899,10 @@ header {
   }
 
   .block-card-overlap .block-entry {
-    width: calc(100% - 40px);
-    position: relative;
-    top: 0;
-    margin: auto;
+    width: calc(100% - 40px) !important;
+    position: relative !important;
+    top: 0 !important;
+    margin: auto !important;
   }
 
   .block-card-overlap .block-entry .title {
@@ -856,17 +913,18 @@ header {
     flex-direction: column;
   }
 
-  // .bg-image-section-one:before {
-  //   height: 250px;
-  //   width: 150px;
-  //   top: -5vh;
-  // }
+  .bg-image-section-one:before {
+    height: 250px;
+    width: 150px;
+    top: -5vh;
+  }
+
+  .navbar-header-mobile {
+    display: block;
+  }
 }
 
 @media screen and (max-width: 768px) {
-  .columns:not(.q-desktop) {
-    display: flex;
-  }
   .q-container {
     padding: 0 35px !important;
   }
@@ -919,6 +977,12 @@ header {
     width: 70%;
     right: 10%;
     margin-top: 150px;
+  }
+}
+
+@media screen and (min-width: 769px) {
+  .columns:not(.q-desktop) {
+    display: flex;
   }
 }
 
