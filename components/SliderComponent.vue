@@ -205,7 +205,7 @@ export default {
     this.$nextTick(() => {
       that.swipper = new Swiper('.mySwiperImages', {
         slidesPerView: 1,
-        spaceBetween: 13,
+        spaceBetween: 0,
         loop: true,
         freeMode: true,
         speed: 2000,
@@ -243,57 +243,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.swiper {
-  width: 100%;
-  height: 100%;
-}
-
-.swiper-slide {
-  text-align: center;
-  font-size: 18px;
-  background: #fff;
-
-  /* Center slide text vertically */
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: -webkit-flex;
-  display: flex;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  -webkit-justify-content: center;
-  justify-content: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  -webkit-align-items: center;
-  align-items: center;
-  min-height: 745px !important;
-}
-
-.swiper-slide img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  height: 745px !important;
-}
-
-.slide .slide-inner {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-}
-
-.slide .slides {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-}
-
-.slide .image-container {
+.image-wrapper {
   position: absolute;
   top: 0;
   left: 0;
@@ -302,140 +252,6 @@ export default {
   background-position: 50%;
   z-index: 1;
   background-size: cover;
-}
-.slide .image-wrapper {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-position: 50%;
-  z-index: 1;
-  background-size: cover;
-}
-
-.slide .slide-content {
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 2;
-  color: #fff;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.slide .slide-content .caption {
-  z-index: 1;
-  color: white !important;
-  position: absolute;
-  left: 50%;
-  bottom: 15%;
-  width: 70%;
-  // max-width: 480px;
-  text-align: center;
-  transform: translateX(-50%) translateY(0);
-}
-
-.slide .slide-content .caption h1 {
-  font: 400 43px/1.3 Playfair Display, serif;
-  margin-top: 0;
-  text-transform: uppercase;
-  margin-bottom: 0;
-  letter-spacing: 5px;
-}
-
-.slide .slide-content .caption p {
-  font: 400 14px/1.8 Open Sans, sans-serif;
-  max-width: 400px;
-  letter-spacing: 1px;
-  margin: 30px auto 0;
-}
-
-.slide .slide-content .sep {
-  width: 80px;
-  height: 1px;
-  background-color: hsla(0, 0%, 100%, 0.8);
-  margin: 30px auto;
-  display: none;
-}
-
-.btn {
-  display: inline-block;
-  border: 1px solid #fff;
-  padding: 10px 30px;
-  color: #fff;
-  font: 400 11px/1.3 Open Sans, sans-serif;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  transition: all 0.2s ease;
-}
-
-.q_magnet {
-  padding: 50px 20px 20px;
-  display: inline-block;
-}
-
-.btn {
-  background: 0 0;
-}
-
-.btn:hover {
-  background-color: #fff;
-  color: #000;
-}
-
-.pagination {
-  position: absolute;
-  left: 10%;
-  cursor: default;
-  z-index: 2;
-  bottom: 10%;
-  margin-top: -56px;
-}
-.swiper-button-prev {
-  margin-right: 70px;
-}
-
-.arrows {
-  display: block;
-  // padding: 20px;
-  position: absolute;
-  bottom: 14%;
-  margin-bottom: -20px;
-  cursor: pointer;
-  z-index: 3;
-  right: 10%;
-}
-
-.swiper-button-next:after,
-.swiper-rtl .swiper-button-prev:after {
-  content: 'prev';
-}
-
-.swiper-button-prev:after,
-.swiper-rtl .swiper-button-prev:after {
-  content: 'next';
-}
-
-.swiper-pagination-bullet {
-  position: relative;
-  display: inline-block;
-  cursor: pointer;
-  text-indent: -999em;
-  z-index: 1;
-  margin: 0 15px;
-}
-
-.grad-btm {
-  position: absolute;
-  z-index: 1;
-  left: 0;
-  width: 100%;
-  bottom: 0;
-  height: 40%;
-  pointer-events: none;
-  background: linear-gradient(180deg, transparent 0, rgba(0, 0, 0, 0.65));
+  image-rendering: optimizeQuality;
 }
 </style>

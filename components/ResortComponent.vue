@@ -2,7 +2,7 @@
   <div class="q-container container-inner">
     <div class="columns block-card-shadow">
       <div class="column is-7 block-picture">
-        <figure class="picture" style="">
+        <figure class="picture">
           <div
             data-scroll=""
             data-scroll-speed="-1"
@@ -15,10 +15,29 @@
             <img
               :src="`${model.featured.aws_file_url}/${model.featured.path}/${model.featured.filename.big}`"
               alt=""
-              data-scroll=""
+              data-scroll
               data-scroll-speed="-0.95"
+              style="
+                transform: matrix3d(
+                  1,
+                  0,
+                  0,
+                  0,
+                  0,
+                  1,
+                  0,
+                  0,
+                  0,
+                  0,
+                  1,
+                  0,
+                  0,
+                  0,
+                  0,
+                  1
+                );
+              "
               class="clip_image is-inview"
-              style=""
             />
           </div>
         </figure>
@@ -110,22 +129,35 @@ export default {
   min-width: 100%;
   min-height: 250px;
 }
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 768px) {
   .block-card-shadow {
     display: flex;
   }
+
+  .picture {
+    height: 417px !important;
+  }
+
   .clip_image {
     height: 458.7px !important;
     width: auto !important;
   }
-  .picture {
-    height: 417px !important;
+}
+
+@media screen and (min-width: 768px) {
+  .block-card-shadow .block-entry .inner {
+    padding-left: 0;
   }
 }
 
-@media screen and (min-width: 1024px) {
-  .block-card-shadow .block-entry .inner {
-    padding-left: 0;
+@media screen and (max-width: 540px) {
+  .picture {
+    height: 599px !important;
+  }
+  .clip_image {
+    height: 458.7px !important;
+    width: auto !important;
+    left: 50px;
   }
 }
 </style>

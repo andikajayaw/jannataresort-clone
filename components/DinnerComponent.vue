@@ -2,23 +2,22 @@
   <div class="q-container container-inner">
     <div class="columns overlap-wrapper type-1">
       <div class="column block-picture wide">
-        <figure class="picture" style="height: 583px">
+        <figure class="picture">
           <div class="rev_clip" style="clip-path: inset(0px); opacity: 1">
             <img
               :src="`${model.featured.aws_file_url}/${model.featured.path}/${model.featured.filename.big}`"
               alt=""
-              data-scroll=""
+              data-scroll
               data-scroll-speed="-2"
               class="clip_image is-inview"
-              style="height: 641.3px; width: auto"
             />
           </div>
         </figure>
       </div>
       <div
-        data-scroll=""
+        class="column block-entry bg-white div-transform"
+        data-scroll
         data-scroll-speed="-2"
-        class="column block-entry bg-white vs-div is-inview"
       >
         <div class="inner">
           <h2 class="title">
@@ -107,6 +106,61 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.clip_image {
+  height: 641.3px !important;
+  width: auto !important;
+  transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+}
 .picture {
+  height: 583px !important;
+}
+
+.rev_clip {
+  clip-path: inset(0 1000px 0 0);
+  -webkit-clip-path: inset(0 1000px 0 0);
+  height: 100%;
+  position: relative;
+  z-index: 5;
+  min-height: 250px;
+}
+
+.rev_clip img[data-v-5004e6cc] {
+  position: absolute;
+  max-width: 200%;
+  width: 100%;
+  min-width: 100%;
+  min-height: 250px;
+}
+
+.div-transform {
+  transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+}
+
+.block-card-overlap .type-1 .block-entry {
+  right: 0;
+  left: -300px;
+}
+
+@media screen and (max-width: 540px) {
+  .picture {
+    height: 298px !important;
+  }
+  .clip_image {
+    height: 450px !important;
+    width: auto !important;
+  }
+  .block-card-overlap .block-picture .picture {
+    padding: 0 20px 0 0;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .clip_image {
+    height: 641.3px !important;
+    width: auto !important;
+  }
+  .picture {
+    height: 583px !important;
+  }
 }
 </style>
