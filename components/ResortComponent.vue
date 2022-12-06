@@ -15,8 +15,28 @@
             <img
               :src="`${model.featured.aws_file_url}/${model.featured.path}/${model.featured.filename.big}`"
               alt=""
-              data-scroll=""
+              data-scroll
               data-scroll-speed="-0.95"
+              style="
+                transform: matrix3d(
+                  1,
+                  0,
+                  0,
+                  0,
+                  0,
+                  1,
+                  0,
+                  0,
+                  0,
+                  0,
+                  1,
+                  0,
+                  0,
+                  0,
+                  0,
+                  1
+                );
+              "
               class="clip_image is-inview"
             />
           </div>

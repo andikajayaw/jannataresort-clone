@@ -4,23 +4,19 @@
     <AwardComponent />
     <div>
       <MainNavbarComponent />
-      <NavbarMobileComponent />
+      <!-- <NavbarMobileComponent v-if="isMobile" /> -->
     </div>
     <SmoothScrool>
-      <div
-        data-scroll-section
-        data-scroll-section-inview
-        class="smooth loco-scroll div-smooth"
-        style="
-          transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
-          opacity: 1;
-          pointer-events: all;
-        "
-      >
+      <div data-scroll-section class="smooth loco-scroll">
         <HeaderComponent />
         <div>
           <div class="container">
-            <section id="slider" class="slide" data-scroll>
+            <section
+              id="slider"
+              class="slide"
+              data-scroll
+              data-scroll-speed="2"
+            >
               <SliderComponent />
             </section>
             <section
@@ -28,6 +24,7 @@
               class="section block-card-section bg-vanilla bg-image-section-one"
               style="margin-top: 0px; margin-bottom: 0px"
               data-scroll
+              data-scroll-speed="2"
             >
               <ResortComponent />
             </section>
@@ -35,25 +32,32 @@
               id="home-accomodation"
               style="padding: 150px 0; margin-top: 0px; margin-bottom: 0px"
               class="section block-fullscreen bg-blue-dark bg-image-section-two"
+              data-scroll
+              data-scroll-speed="2"
             >
               <AccomodationComponent />
             </section>
             <section
               id="dinner"
               class="section bg-image-section-one bg-vanilla block-card-section block-card-overlap"
-              style="margin-top: 0px; margin-bottom: 0px"
+              data-scroll
+              data-scroll-speed="2"
             >
               <DinnerComponent />
             </section>
             <section
               id="spa"
               class="section block-card-section block-card-overlap bg-full-image"
+              data-scroll
+              data-scroll-speed="2"
             >
               <SpaComponent />
             </section>
             <section
               id="review"
               class="section our-story-summary bg-image-section-one testi"
+              data-scroll
+              data-scroll-speed="2"
             >
               <TestimonialComponent />
             </section>
@@ -67,6 +71,29 @@
 <script>
 export default {
   name: 'IndexPage',
+  data: () => {
+    return {}
+  },
+  computed: {
+    isMobile() {
+      if (process.client) {
+        const sW = window.innerWidth
+        if (sW <= 540) {
+          return true
+        } else {
+          return false
+        }
+      } else {
+        return false
+      }
+    },
+  },
+  // created() {
+  //   const sW = window.screen.width
+  //   if (sW <= 540) {
+  //     this.isMobile = true
+  //   }
+  // },
 }
 </script>
 

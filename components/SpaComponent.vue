@@ -1,12 +1,17 @@
 <template>
   <div>
     <div
+      data-scroll
+      data-scroll-speed="-2"
       class="bg-image is-inview"
       :style="{
         backgroundImage: [
           `url(${model.featured.aws_file_url}/${model.featured.path}/${model.featured.filename.big})`,
         ],
       }"
+      style="
+        transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+      "
     ></div>
     <div class="q-container container-inner">
       <div class="columns overlap-wrapper type-1">
