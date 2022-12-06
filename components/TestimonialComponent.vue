@@ -1,51 +1,22 @@
 <template>
-  <div class="q-container container-inner">
-    <!-- <div class="columns type-1">
-      <div class="column flickity-enabled is-draggable">
-        <div
-          class="swipper flickity-viewport"
-          style="height: 287px; touch-action: pan-y"
-        >
-          <div
-            class="swiper-wrapper flickity-slider"
-            style="left: 0px; transform: translate3d(-400%, 0px, 0px)"
-          >
-            <div
-              v-for="slider in model.dataSlider"
-              :key="slider.id"
-              class="slide swiper-slide"
-              style="position: absolute; left: 0%"
-              aria-hidden="true"
-            >
-              <p>
-                {{ slider.description }}
-              </p>
-              <small>{{ slider.title }}</small>
-            </div>
-          </div>
-        </div>
+  <div class="swiper mySwiper">
+    <div class="swiper-wrapper">
+      <div
+        v-for="slider in model.dataSlider"
+        :key="slider.id"
+        class="swiper-slide"
+        aria-hidden="true"
+      >
+        <p>
+          {{ slider.description }}
+        </p>
+        <!-- <br />
+          <small>{{ slider.title }}</small> -->
       </div>
-
-    </div> -->
-    <div class="swiper mySwiper">
-      <div class="swiper-wrapper">
-        <div
-          v-for="slider in model.dataSlider"
-          :key="slider.id"
-          class="swiper-slide"
-          aria-hidden="true"
-        >
-          <p>
-            {{ slider.description }}
-          </p>
-          <br />
-          <small>{{ slider.title }}</small>
-        </div>
-      </div>
-      <div class="swiper-button-next"></div>
-      <div class="swiper-button-prev"></div>
-      <div class="swiper-pagination"></div>
     </div>
+    <!-- <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div> -->
+    <div class="swiper-pagination"></div>
   </div>
 </template>
 
@@ -110,10 +81,6 @@ export default {
           el: '.swiper-pagination',
           clickable: true,
         },
-        navigation: {
-          nextEl: '.swiper-button-next',
-          prevEl: '.swiper-button-prev',
-        },
       })
     })
   },
@@ -121,10 +88,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-#testiTwo {
-  position: relative;
-}
-
 .flickity-enabled.is-draggable .flickity-viewport {
   cursor: move;
   cursor: -webkit-grab;
