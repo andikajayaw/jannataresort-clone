@@ -4,14 +4,20 @@
       <div
         v-for="slider in model.dataSlider"
         :key="slider.id"
-        class="swiper-slide"
+        class="slide swiper-slide"
         aria-hidden="true"
       >
-        <p>
-          {{ slider.description }}
-        </p>
-        <!-- <br />
-          <small>{{ slider.title }}</small> -->
+        <div>
+          <p>
+            {{ slider.description }}
+          </p>
+        </div>
+        <br />
+        <br />
+        <br />
+        <!-- <div>
+          <span>{{ slider.title }}</span>
+        </div> -->
       </div>
     </div>
     <!-- <div class="swiper-button-next"></div>
@@ -88,54 +94,22 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.flickity-enabled.is-draggable .flickity-viewport {
-  cursor: move;
-  cursor: -webkit-grab;
-  cursor: grab;
-}
-
-.flickity-viewport {
-  overflow: hidden;
-  position: relative;
-  height: 100%;
-}
-
-.flickity-slider {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-}
-
-.testi .slide {
+.slide {
   width: 100%;
   padding-bottom: 50px;
 }
 
-#page_summary .type-1 p {
+p {
+  font-family: Playfair Display, serif;
   text-align: center;
   margin: 0;
   font-size: 20px;
 }
 
-#page_summary .type-1 p {
-  font-family: Playfair Display, serif;
-}
-
-#page_summary .type-1 small {
+small {
   display: block;
   font-size: 15px;
   margin-top: 30px;
-}
-
-.flickity-page-dots {
-  position: absolute;
-  width: 100%;
-  bottom: -25px;
-  padding: 0;
-  margin: 0;
-  list-style: none;
-  text-align: center;
-  line-height: 1;
 }
 
 .swiper {
@@ -146,7 +120,6 @@ export default {
 .swiper-slide {
   text-align: center;
   font-size: 18px;
-  background: #fff;
 
   /* Center slide text vertically */
   display: -webkit-box;
