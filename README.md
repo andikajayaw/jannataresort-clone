@@ -1,4 +1,4 @@
-# jannataresort-homepage
+# JANNATA-RESORT HOME-PAGE
 
 ## Build Setup
 
