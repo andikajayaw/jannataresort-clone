@@ -4,7 +4,7 @@
     <AwardComponent />
     <div>
       <MainNavbarComponent />
-      <NavbarMobileComponent v-if="!isMobile" />
+      <!-- <NavbarMobileComponent v-if="!isMobile" /> -->
     </div>
     <SmoothScrool>
       <div data-scroll-section class="smooth loco-scroll">
@@ -55,7 +55,7 @@
               <SpaComponent />
             </section>
             <section
-              id="review"
+              id="page_summary"
               class="section our-story-summary bg-image-section-one testi bg-vanilla"
               data-scroll
               data-scroll-speed="2"
@@ -89,12 +89,6 @@ export default {
       }
     },
   },
-  // created() {
-  //   const sW = window.screen.width
-  //   if (sW <= 540) {
-  //     this.isMobile = true
-  //   }
-  // },
 }
 </script>
 
