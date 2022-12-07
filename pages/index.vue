@@ -4,7 +4,7 @@
     <AwardComponent />
     <div>
       <MainNavbarComponent />
-      <NavbarMobileComponent v-if="isMobile" />
+      <!-- <NavbarMobileComponent v-if="!isMobile" /> -->
     </div>
     <SmoothScrool>
       <div data-scroll-section class="smooth loco-scroll">
@@ -56,20 +56,11 @@
             </section>
             <section
               id="page_summary"
-              class="section our-story-summary bg-image-section-one testi"
+              class="section our-story-summary bg-image-section-one testi bg-vanilla"
               data-scroll
               data-scroll-speed="2"
             >
-              <div class="q-container container-inner">
-                <div class="columns type-1">
-                  <div
-                    id="testiTwo"
-                    class="column flickity-enabled is-draggable"
-                  >
-                    <TestimonialComponent />
-                  </div>
-                </div>
-              </div>
+              <TestimonialComponent />
             </section>
           </div>
         </div>
@@ -88,10 +79,10 @@ export default {
     isMobile() {
       if (process.client) {
         const sW = window.innerWidth
-        if (sW >= 540) {
-          return false
-        } else {
+        if (sW <= 540) {
           return true
+        } else {
+          return false
         }
       } else {
         return false
@@ -101,4 +92,14 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+#page_summary {
+  position: relative;
+  z-index: 1;
+  background: #f0f0f5;
+}
+
+.our-story-summary {
+  padding-bottom: 150px;
+}
+</style>
